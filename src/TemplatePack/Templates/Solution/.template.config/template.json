@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Aggregate Groot",
+    "classifications": [ "template" ],
+    "identity": "AggregateGroot.DDD.Solution",
+    "name": "Aggregate Groot DDD Solution",
+    "shortName": "ag-ddd-template",
+    "sourceName": "Aggregate_Groot_DDD_Solution",
+    "tags": {
+        "language": "",
+        "type": "project"
+    },
+    "symbols": {
+        "source": {
+            "replaces": "Aggregate_Groot_DDD_Solution",
+            "type": "bind",
+            "datatype": "text",
+            "binding": "sourceName"
+        }
+     }
+  }

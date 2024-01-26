@@ -1,0 +1,33 @@
+name: CI - Template Pack
+
+on:
+  push:
+    branches:
+        - develop
+    paths:
+        - 'src/TemplatePack/**'
+        - '.github/workflows/ci-template-pack.yml'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_FILE: ./src/TemplatePack/TemplatePack.csproj
+
+    steps:
+
+    - name: Checkout Source
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 8.0.x
+        include-prerelease: true
+
+    - name: Restore dependencies
+      run: dotnet restore $PROJECT_FILE
+
+    - name: Build
+      run: dotnet build $PROJECT_FILE --no-restore -c Release

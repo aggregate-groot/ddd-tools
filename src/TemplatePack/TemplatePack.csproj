@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+      <AssemblyName>AggregateGroot.DDD.Templates</AssemblyName>
       <PackageType>Template</PackageType>
       <PackageVersion>0.1.0</PackageVersion>
-      <PackageId>AggregateGroot.DDD.Templates</PackageId>
+      <PackageId>$(AssemblyName)</PackageId>
       <Title>Aggregate Groot Domain Driven Design Templates</Title>
       <Authors>Aggregate Groot</Authors>
       <Description>Template pack for creating projects and items using Domain Driven Design and Cleean Architecture.</Description>

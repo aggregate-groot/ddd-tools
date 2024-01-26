@@ -1,0 +1,36 @@
+name: CD - Template Pack
+
+on:
+  push:
+    branches:
+        - master
+    paths:
+        - 'src/TemplatePack/**'
+        - '.github/workflows/cd-template-pack.yml'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_FILE: ./src/TemplatePack/TemplatePack.csproj
+
+    steps:
+
+    - name: Checkout Source
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 8.0.x
+        include-prerelease: true
+
+    - name: Restore dependencies
+      run: dotnet restore $PROJECT_FILE
+
+    - name: Pack Templates
+      run: dotnet build $PROJECT_FILE --no-restore -c Release
+
+    - name: Push Packages
+      run: dotnet nuget push src/TemplatePack/bin/**/*.nupkg --api-key ${{ secrets.NUGET_PUBLISH_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate

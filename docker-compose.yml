@@ -1,0 +1,11 @@
+version: '3.4'
+name: 'ddd-tools'
+
+services:
+  
+  docs:
+    build:
+      context: ./docs
+      dockerfile: Dockerfile
+    ports:
+      - "9702:80"

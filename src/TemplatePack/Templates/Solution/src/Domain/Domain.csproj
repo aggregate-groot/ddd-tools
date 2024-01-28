@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>ProductNamespace.Domain</AssemblyName>
+        <RootNamespace>ProductNamespace.Domain</RootNamespace>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+</Project>
